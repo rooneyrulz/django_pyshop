@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
 	<h1>Create Product</h1>
 	<br>
 	<form method="POST">
@@ -12,5 +8,4 @@
 		{{ form.as_p }}
 		<button class="btn" type="submit">ADD</button>
 	</form>
-</body>
-</html>
+{% endblock %}
