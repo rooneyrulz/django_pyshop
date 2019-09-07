@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.urls import reverse
 from django.db import models
 
 class Product(models.Model):
@@ -12,3 +13,7 @@ class Product(models.Model):
 
 	def __str__(self):
 		return self.name
+
+
+	def get_absolute_url(self):
+		return reverse('product:product_details_view', kwargs={'id': self.id})

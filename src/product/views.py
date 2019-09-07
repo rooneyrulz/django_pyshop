@@ -35,3 +35,11 @@ def product_create_view(request):
 		'form': form
 	}
 	return render(request, 'product/product_create.html', context)
+
+
+def product_details_view(request, id):
+	product = Product.objects.get(id=id)
+	context = {
+		'product': product
+	}
+	return render(request, 'product/product_details.html', context)
