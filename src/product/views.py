@@ -5,13 +5,22 @@ from django.http import HttpResponse
 from .models import Product
 from .forms import ProductForm
 
-@staff_member_required()
+
 def product_list_view(request):
-	products = Product.objects.filter(provider=request.user.id)
+	products = Product.objects.all()
 	context = {
 		'products': products
 	}
 	return render(request, 'product/product_list.html', context)
+
+
+@staff_member_required()
+def product_auth_list_view(request):
+	products = Product.objects.filter(provider=request.user.id)
+	context = {
+		'products': products
+	}
+	return render(request, 'product/product_auth_list.html', context)
 
 
 @staff_member_required()
