@@ -3,7 +3,17 @@
 {% block content %}
 	<h1>Products</h1>
 	<br>
-	{% for product in products %}
-		<p>{{ product.name }}</p>
-	{% endfor %}
+	<div class="row">
+		{% for product in products %}
+			<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+				<div class="card">
+					<div class="card-body">
+						<p class="lead">{{ product.name }}</p>
+						<p class="lead">{{ product.price }}</p>
+						<a href="{{product.get_absolute_url}}" class="btn btn-primary">Detail</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}
