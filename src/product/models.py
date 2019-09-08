@@ -1,4 +1,5 @@
 from django.conf import settings
+# from django.contrib.admin.models import User
 from django.urls import reverse
 from django.db import models
 
