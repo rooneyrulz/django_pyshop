@@ -18,3 +18,11 @@ class Product(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('product:product_details_view', kwargs={'id': self.id})
+
+
+	def get_edit_url(self):
+		return reverse('product:product_edit_view', kwargs={'id': self.id})
+
+
+	def get_delete_url(self):
+		return reverse('product:product_delete_view', kwargs={'id': self.id})
