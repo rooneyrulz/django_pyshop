@@ -10,10 +10,12 @@ def product_list_view(request):
 	products = Product.objects.all()
 	if len(products) < 1:
 		context = {
+			'title': 'Not Found!',
 			'error_msg': 'No products found yet..'
 		}
 		return render(request, 'product/product_list.html', context)
 	context = {
+		'title': 'Products',
 		'products': products
 	}
 	return render(request, 'product/product_list.html', context)
@@ -22,7 +24,14 @@ def product_list_view(request):
 @staff_member_required()
 def product_auth_list_view(request):
 	products = Product.objects.filter(provider=request.user.id)
+	if len(products) < 1:
+		context = {
+			'title': 'Not Found!',
+			'error_msg': 'It seems you have not published any products yet..'
+		}
+		return render(request, 'product/product_auth_list.html', context)
 	context = {
+		'title': 'My Products',
 		'products': products
 	}
 	return render(request, 'product/product_auth_list.html', context)
@@ -37,6 +46,7 @@ def product_create_view(request):
 		obj.save()
 		form = ProductForm()
 	context = {
+		'title': 'Create',
 		'form': form
 	}
 	return render(request, 'product/product_create.html', context)
@@ -45,16 +55,25 @@ def product_create_view(request):
 def product_details_view(request, id):
 	product = get_object_or_404(Product, id=id)
 	context = {
+		'title': 'Details',
 		'product': product
 	}
 	return render(request, 'product/product_details.html', context)
 
 
 def product_edit_view(request, id):
-	context = {}
+	product = get_object_or_404(Product, id=id)
+	context = {
+		'title': 'Edit',
+		'product': product
+	}
 	return render(request, 'product/product_edit.html', context)
 
 
 def product_delete_view(request, id):
-	context = {}
+	product = get_object_or_404(Product, id=id)
+	context = {
+		'title': 'delete',
+		'product': product
+	}
 	return render(request, 'product/product_delete.html', context)

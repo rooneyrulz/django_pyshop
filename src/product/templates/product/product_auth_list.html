@@ -1,20 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1 style="font-weight: bold;" class="text-primary">Products</h1>
+	<h1 style="font-weight: bold;" class="text-primary">My Products</h1>
 	<br>
-	<div class="row">
+	<div class="my-products">
+		{% if error_msg %}
+			<p class="lead text-secondary">{{ error_msg }}</p>
+		{% else %}
+		<div class="row">
 		{% for product in products %}
 			<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
 				<div class="card">
+					{% if product.image %}
+						<a href="">
+							<img class="card-img-top" src="{{product.image.url}}">
+						</a>
+					{% endif %}
 					<div class="card-body">
 						<p class="lead">{{ product.name }}</p>
-						<p class="lead"> $ {{ product.price }}</p>
-						<p class="lead">{{ product.description }}</p>
-						<a href="#!" class="btn btn-danger">REMOVE</a>
+						<p class="card-text"> $ {{ product.price }}</p>
 					</div>
+					{% if product.provider.id == request.user.id %}
+						<div class="card-footer">
+							<a class="btn btn-danger" href="{{product.get_delete_url}}">Delete</a>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		{% endfor %}
+		</div>
+	{% endif %}
 	</div>
 {% endblock %}
