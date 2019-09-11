@@ -4,12 +4,13 @@
 	<div class="product-details-header">
 		<h1 style="font-weight: bold;" class="text-primary m-0">Products</h1>
 		<div class="btn-group">
-			<a class="btn btn-secondary" href="/product">Back</a>
+			<a class="btn btn-dark" href="/product">Back</a>
 			{% if product.provider.id == request.user.id %}
-				<a class="btn btn-info" href="{{product.get_edit_url}}">Edit</a>
+				<a class="btn btn-primary" href="{{product.get_edit_url}}">Edit</a>
 			{% endif %}
 		</div>
 	</div>
+	<hr>
 	<br><br>
 	<div class="row">
 		<div class="col-sm-12">

@@ -8,7 +8,7 @@ class ProductForm(forms.ModelForm):
 		widget=forms.TextInput(
 			attrs={
 				'id': 'name',
-				'class': 'form-control',
+				'class': 'form-control form-control-lg',
 				'placeholder': 'Enter name'
 			}
 		)
@@ -18,7 +18,7 @@ class ProductForm(forms.ModelForm):
 		widget=forms.NumberInput(
 			attrs={
 				'id': 'price',
-				'class': 'form-control',
+				'class': 'form-control form-control-lg',
 				'placeholder': 'Enter price'
 			}
 		)
@@ -29,7 +29,7 @@ class ProductForm(forms.ModelForm):
 		widget=forms.Textarea(
 			attrs={
 				'id': 'description',
-				'class': 'form-control',
+				'class': 'form-control form-control-lg',
 				'placeholder': 'Enter description',
 				'rows': 4
 			}
