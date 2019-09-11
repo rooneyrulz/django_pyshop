@@ -20,6 +20,11 @@
 						<div class="card-body">
 							<p class="lead">{{ product.name }}</p>
 							<p class="card-text">$ {{ product.price }}</p>
+							<p class="card-text text-sm">
+								<small>
+									{{ product.date | date:"F d, Y" }}
+								</small>
+							</p>
 							<a href="{{product.get_absolute_url}}" class="btn btn-primary">Details</a>
 						</div>
 					</div>

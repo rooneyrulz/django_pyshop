@@ -1,6 +1,6 @@
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
 
 from .models import Product
 from .forms import ProductForm
@@ -44,6 +44,7 @@ def product_create_view(request):
 		obj = form.save(commit=False)
 		obj.provider = request.user
 		obj.save()
+		messages.success(request, 'Product published successfully!')
 		form = ProductForm()
 	context = {
 		'title': 'Create',
