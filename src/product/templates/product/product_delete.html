@@ -5,7 +5,8 @@
 	<p class="lead text-info">This action can't be undone after deleting..</p>
 	<hr>
 	<br>
-	<form>
+	<form method="POST" action="">
+		{% csrf_token %}
 		<div class="card">
 			<div class="card-body">
 				<p class="lead">{{product.name}}</p>
@@ -13,8 +14,8 @@
 			</div>
 			<div class="card-footer">
 				<div class="btn-group">
-					<a class="btn btn-danger" href="#!">Yes</a>
-					<a class="btn btn-dark" href="{{product.get_absolute_url}}">No</a>
+					<button type="submit" class="btn btn-danger">Yes</button>
+					<a type="button" class="btn btn-dark" href="{{product.get_absolute_url}}">No</a>
 				</div>
 			</div>
 		</div>

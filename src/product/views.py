@@ -68,7 +68,8 @@ def product_edit_view(request, id):
 	if form.is_valid():
 		form.save()
 		messages.success(request, 'Product updated successfully')
-		redirect(f'/product/details/{id}/')
+		return redirect(f'/product/details/{id}/')
+
 	context = {
 		'title': 'Edit',
 		'form': form
@@ -78,6 +79,11 @@ def product_edit_view(request, id):
 
 def product_delete_view(request, id):
 	product = get_object_or_404(Product, id=id)
+	if request.method == 'POST':
+		product.delete()
+		messages.success(request, 'Product deleted successfully!')
+		return redirect('/product/my-product/')
+
 	context = {
 		'title': 'delete',
 		'product': product
