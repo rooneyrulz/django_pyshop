@@ -1,0 +1,46 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+	font-weight: 400;
+	font-size: 1rem;
+	font-family: 'Nunito', sans-serif;
+	overflow-x: hidden; 
+}
+
+/* Product List */
+
+.product-list img {
+	width: 100%;
+	height: 300px;
+}
+
+
+
+
+/* Product Details */
+
+.product-details-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.product-details img {
+	width: 100%;
+	min-height: 300px;
+	margin: auto;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+/*
+.product-details ul :nth-child(even) {
+	background: #555;
+}
+*/

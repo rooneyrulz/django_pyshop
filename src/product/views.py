@@ -1,5 +1,5 @@
 from django.contrib.admin.views.decorators import staff_member_required
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Product
@@ -43,8 +43,18 @@ def product_create_view(request):
 
 
 def product_details_view(request, id):
-	product = Product.objects.get(id=id)
+	product = get_object_or_404(Product, id=id)
 	context = {
 		'product': product
 	}
 	return render(request, 'product/product_details.html', context)
+
+
+def product_edit_view(request, id):
+	context = {}
+	return render(request, 'product/product_edit.html', context)
+
+
+def product_delete_view(request, id):
+	context = {}
+	return render(request, 'product/product_delete.html', context)
