@@ -3,7 +3,10 @@
 {% block content %}
 	<h1 style="font-weight: bold;" class="text-primary">Products</h1>
 	<br>
-	<div class="row">
+	{% if error_msg %}
+		<p class="lead text-secondary">{{ error_msg }}</p>
+	{% else %}
+		<div class="row">
 		{% for product in products %}
 			<div class="col-sm-12 col-md-6 col-lg-4 mb-4">
 				<div class="card">
@@ -21,4 +24,5 @@
 			</div>
 		{% endfor %}
 	</div>
+	{% endif %}
 {% endblock %}
