@@ -14,6 +14,7 @@ def register_view(request):
 		form = RegisterForm()
 
 	context = {
+		'title': 'User',
 		'form': form
 	}
 	return render(request, 'users/register.html', context)
