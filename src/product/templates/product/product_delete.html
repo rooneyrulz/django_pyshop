@@ -5,16 +5,18 @@
 	<p class="lead text-info">This action can't be undone after deleting..</p>
 	<hr>
 	<br>
-	<div class="card">
-		<div class="card-body">
-			<p class="lead">{{product.name}}</p>
-			<p class="card-text">{{product.provider}}</p>
-		</div>
-		<div class="card-footer">
-			<div class="btn-group">
-				<a class="btn btn-danger" href="#!">Yes</a>
-				<a class="btn btn-dark" href="{{product.get_absolute_url}}">No</a>
+	<form>
+		<div class="card">
+			<div class="card-body">
+				<p class="lead">{{product.name}}</p>
+				<p class="card-text">{{product.provider}}</p>
+			</div>
+			<div class="card-footer">
+				<div class="btn-group">
+					<a class="btn btn-danger" href="#!">Yes</a>
+					<a class="btn btn-dark" href="{{product.get_absolute_url}}">No</a>
+				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 {% endblock %}

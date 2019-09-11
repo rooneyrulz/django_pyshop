@@ -15,7 +15,9 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="product-details">
-				<img src="{{ product.image.url }}">
+				{% if product.image %}
+					<img src="{{ product.image.url }}">
+				{% endif %}
 				<ul class="list-group">
 					<li class="list-group-item">
 						<strong class="float-left">Name</strong>

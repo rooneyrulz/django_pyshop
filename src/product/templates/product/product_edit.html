@@ -4,4 +4,13 @@
 	<h1 style="font-weight: bold;" class="text-primary">Update Product</h1>
 	<hr>
 	<br>
+	<div class="row">
+		<div class="col-sm-12">
+			<form method="POST" action="." enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit" class="btn btn-primary bn-lg">Update</button>
+			</form>
+		</div>
+	</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Product
 from .forms import ProductForm
@@ -64,9 +64,14 @@ def product_details_view(request, id):
 
 def product_edit_view(request, id):
 	product = get_object_or_404(Product, id=id)
+	form = ProductForm(request.POST or None, request.FILES or None,  instance=product)
+	if form.is_valid():
+		form.save()
+		messages.success(request, 'Product updated successfully')
+		redirect(f'/product/details/{id}/')
 	context = {
 		'title': 'Edit',
-		'product': product
+		'form': form
 	}
 	return render(request, 'product/product_edit.html', context)
 
