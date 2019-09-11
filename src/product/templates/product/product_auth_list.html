@@ -23,7 +23,7 @@
 					</div>
 					{% if product.provider.id == request.user.id %}
 						<div class="card-footer">
-							<a class="btn btn-danger" href="{{product.get_delete_url}}">Delete</a>
+							<a class="btn btn-outline-danger" href="{{product.get_delete_url}}">Delete</a>
 						</div>
 					{% endif %}
 				</div>

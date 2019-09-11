@@ -4,7 +4,6 @@ from django import forms
 
 class RegisterForm(UserCreationForm):
 	# username = forms.CharField(
-	# 	required=True,
 	# 	widget=forms.TextInput(
 	# 		attrs={
 	# 			'class': 'form-control form-control-lg',
@@ -14,7 +13,6 @@ class RegisterForm(UserCreationForm):
 	# )
 
 	# email = forms.EmailField(
-	# 	required=True,
 	# 	widget=forms.TextInput(
 	# 		attrs={
 	# 			'type': 'email',
@@ -25,7 +23,6 @@ class RegisterForm(UserCreationForm):
 	# )
 
 	# password1 = forms.CharField(
-	# 	required=True,
 	# 	widget=forms.TextInput(
 	# 		attrs={
 	# 			'type': 'password',
@@ -36,7 +33,6 @@ class RegisterForm(UserCreationForm):
 	# )
 
 	# password2 = forms.CharField(
-	# 	required=True,
 	# 	widget=forms.TextInput(
 	# 		attrs={
 	# 			'type': 'password',
