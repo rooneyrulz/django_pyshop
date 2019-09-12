@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1 style="font-weight: bold;" class="text-primary">Products</h1>
+	<div class="product-header">
+		<h1 style="font-weight: bold;" class="text-primary">Products</h1>
+		<form class="form-inline">
+			<div class="form-group mr-1">
+				<input class="form-control" type="text" name="q" placeholder="Type product name..">
+			</div>
+			<button class="btn btn-outline-primary" type="submit">
+				Search
+			</button>
+		</form>
+	</div>
 	<hr>
 	<br>
 	<div class="product-list">

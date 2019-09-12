@@ -25,7 +25,7 @@ body {
 
 /* Product Details */
 
-.product-details-header {
+.product-details-header, .product-header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
