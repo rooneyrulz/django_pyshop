@@ -2,11 +2,11 @@
 
 {% block content %}
 	<div style="display: flex; flex-direction: row; justify-content: space-between;" class="profile-header">
-		<h1>Profile</h1>
+		<h1 style="font-weight: bold;" class="text-primary">Profile</h1>
 		{% if profile %}
 			<div class="button-group">
-				<a class="btn" href="">Edit</a>
-				<a class="btn" href="">Delete</a>
+				<a class="btn" href="/users/profile/edit">Edit</a>
+				<a class="btn" href="/users/profile/delete">Delete</a>
 			</div>
 		{% endif %}
 	</div>

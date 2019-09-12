@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<h1 style="font-weight: bold;" class="text-primary">Edit Profile</h1>
+	<hr>
+	<br>
+	<form method="POST" action="." enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ u_form|crispy }}
+		{{ p_form|crispy }}
+		<button class="btn btn-lg btn-outline-success" type="submit">Update</button>
+	</form>
+{% endblock %}
