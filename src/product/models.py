@@ -1,7 +1,8 @@
 from django.conf import settings
-# from django.contrib.admin.models import User
 from django.urls import reverse
 from django.db import models
+
+from PIL import Image
 
 class Product(models.Model):
 	provider = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
@@ -15,6 +16,16 @@ class Product(models.Model):
 
 	def __str__(self):
 		return self.name
+
+
+	def save(self):
+		super().save()
+
+		img = Image.open(self.image.path)
+		if img.height > 350 or img.width > 400:
+			output_size = (400, 350)
+			img.thumbnail(output_size)
+			img.save(self.image.path)
 
 
 	def get_absolute_url(self):
