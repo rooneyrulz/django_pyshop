@@ -3,9 +3,14 @@
 		<a href="/" class="navbar-brand">Pyshop</a>
 		<ul class="navbar-nav ml-auto">
 			{% if request.user.is_authenticated %}
-				<li class="nav-item">
-					<a class="nav-link text-light" href="/users/logout">Logout</a>
-				</li>
+				<div style="display: flex; justify-content: space-around; width: 200px; text-align: center; align-items: center;">
+					<li class="nav-item">
+						<a class="nav-link text-light" href="/users/profile">Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link text-light" href="/users/logout">Logout</a>
+					</li>
+				</div>
 			{% else %}
 				<div style="display: flex; justify-content: space-around; width: 200px; text-align: center; align-items: center;">
 					<li class="nav-item">

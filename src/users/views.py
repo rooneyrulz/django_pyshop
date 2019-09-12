@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from .forms import RegisterForm
+from .models import Profile
 
 
 def register_view(request):
@@ -22,7 +23,16 @@ def register_view(request):
 
 @login_required()
 def profile_view(request):
+	try:
+		profile = Profile.objects.get(user=request.user.id)
+	except Profile.DoesNotExist:
+		context = {
+			'title': 'Profile'
+		}
+		return render(request, 'users/profile.html', context)
+
 	context = {
-		'title': 'Profile'
+		'title': 'Profile',
+		'profile': profile
 	}
 	return render(request, 'users/profile.html', context)

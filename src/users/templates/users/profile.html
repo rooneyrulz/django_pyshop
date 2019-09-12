@@ -3,14 +3,17 @@
 {% block content %}
 	<div style="display: flex; flex-direction: row; justify-content: space-between;" class="profile-header">
 		<h1>Profile</h1>
-		<div class="button-group">
-			<a class="btn" href="">Edit</a>
-			<a class="btn" href="">Delete</a>
-		</div>
+		{% if profile %}
+			<div class="button-group">
+				<a class="btn" href="">Edit</a>
+				<a class="btn" href="">Delete</a>
+			</div>
+		{% endif %}
 	</div>
 	<hr>
 	<br>
-	<div style="display: grid; grid-template-columns: 2fr 1fr; grid-gap: 1rem; align-items: center;" class="profile p-3">
+	{% if profile %}
+		<div style="display: grid; grid-template-columns: 2fr 1fr; grid-gap: 1rem; align-items: center;" class="profile p-3">
   		<img style="border-radius: 50%;"  src="{{user.profile.image.url}}" alt="...">
 		<div>
 			<ul class="list-group">
@@ -23,4 +26,7 @@
 			</ul>
 		</div>
 	</div>
+	{% else %}
+		<p class="lead text-muted">It seems you have not created your profile yet, Let's create one..</p>
+	{% endif %}
 {% endblock %}
