@@ -8,10 +8,9 @@ from .forms import RegisterForm
 def register_view(request):
 	form = RegisterForm(request.POST or None)
 	if form.is_valid():
-		username = form.cleaned_data.get('username')
 		form.save()
-		messages.success(request, f'User created successfully for {username}!')
-		form = RegisterForm()
+		messages.success(request, 'User created successfully, You can now login!')
+		return redirect('/users/login')
 
 	context = {
 		'title': 'User',

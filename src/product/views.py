@@ -1,4 +1,4 @@
-from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -21,12 +21,12 @@ def product_list_view(request):
 	return render(request, 'product/product_list.html', context)
 
 
-@staff_member_required()
+@login_required()
 def product_auth_list_view(request):
 	products = Product.objects.filter(provider=request.user.id)
 	if len(products) < 1:
 		context = {
-			'title': 'Not Found!',
+			'title': 'My Products',
 			'error_msg': 'It seems you have not published any products yet..'
 		}
 		return render(request, 'product/product_auth_list.html', context)
@@ -37,7 +37,7 @@ def product_auth_list_view(request):
 	return render(request, 'product/product_auth_list.html', context)
 
 
-@staff_member_required()
+@login_required()
 def product_create_view(request):
 	form = ProductForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
@@ -62,6 +62,7 @@ def product_details_view(request, id):
 	return render(request, 'product/product_details.html', context)
 
 
+@login_required()
 def product_edit_view(request, id):
 	product = get_object_or_404(Product, id=id)
 	form = ProductForm(request.POST or None, request.FILES or None,  instance=product)
@@ -77,6 +78,7 @@ def product_edit_view(request, id):
 	return render(request, 'product/product_edit.html', context)
 
 
+@login_required()
 def product_delete_view(request, id):
 	product = get_object_or_404(Product, id=id)
 	if request.method == 'POST':
