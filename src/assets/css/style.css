@@ -1,3 +1,5 @@
+/* Global Section*/
+
 * {
 	box-sizing: border-box;
 }
@@ -13,6 +15,17 @@ body {
 }
 
 
+/* Header Section */
+
+#pyshop-navbar {
+	background: #1465bf;
+	color: #fff;
+}
+
+.navbar-brand {
+	color: #fff;
+}
+
 .main-nav {
 	display: flex;
 	width: 100%;
@@ -21,6 +34,12 @@ body {
 	text-align: center;
 	align-items: center;
 }
+
+
+/* Home Section  */
+
+
+/* Product Section */
 
 
 /* Product Details */
