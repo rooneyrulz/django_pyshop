@@ -18,8 +18,8 @@ class Product(models.Model):
 		return self.name
 
 
-	def save(self):
-		super().save()
+	def save(self, *args, **kwargs):
+		super().save(*args, **kwargs)
 
 		img = Image.open(self.image.path)
 		if img.height > 350 or img.width > 400:
