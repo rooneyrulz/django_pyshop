@@ -14,6 +14,10 @@ body {
 	overflow-x: hidden; 
 }
 
+h1 {
+	color: #1465bf;
+}
+
 
 /* Header Section */
 
@@ -37,6 +41,8 @@ body {
 
 
 /* Home Section  */
+
+
 
 
 /* Product Section */
